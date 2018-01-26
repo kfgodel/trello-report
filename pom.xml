@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>ar.com.kfgodel</groupId>
+    <artifactId>java-pom</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>ar.com.kfgodel</groupId>
+  <artifactId>trello-report</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>Trello report</name>
+  <description>Proyecto para parsear la exportacion a json de trello y generar un listado de tareas con estimaciones</description>
+
+  <scm>
+    <connection>scm:git:ssh://github.com/kfgodel/primitons.git</connection>
+    <developerConnection>scm:git:ssh://github.com/kfgodel/primitons.git</developerConnection>
+    <url>https://github.com/kfgodel/primitons</url>
+  </scm>
+
+  <properties>
+    <version.jackson>2.9.0</version.jackson>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>kfgodel_mosquito</id>
+      <name>Repo Mosquito</name>
+      <url>http://kfgodel.info:8081/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+
+  <dependencies>
+
+    <!-- Permite parseo de json -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${version.jackson}</version>
+    </dependency>
+
+    <!-- n-arity for api -->
+    <dependency>
+      <groupId>ar.com.kfgodel</groupId>
+      <artifactId>nary</artifactId>
+    </dependency>
+
+    <!-- Rspec like testing -->
+    <dependency>
+      <groupId>ar.com.dgarcia</groupId>
+      <artifactId>java-spec</artifactId>
+    </dependency>
+
+  </dependencies>
+
+</project>
