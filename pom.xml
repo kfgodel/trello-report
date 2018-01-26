@@ -16,10 +16,11 @@
   <name>Trello report</name>
   <description>Proyecto para parsear la exportacion a json de trello y generar un listado de tareas con estimaciones</description>
 
+
   <scm>
-    <connection>scm:git:ssh://github.com/kfgodel/primitons.git</connection>
-    <developerConnection>scm:git:ssh://github.com/kfgodel/primitons.git</developerConnection>
-    <url>https://github.com/kfgodel/primitons</url>
+    <url>https://github.com/kfgodel/trello-report</url>
+    <connection>scm:git:ssh://git@github.com/kfgodel/trello-report.git</connection>
+    <developerConnection>${project.scm.connection}</developerConnection>
   </scm>
 
   <properties>
