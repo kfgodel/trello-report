@@ -16,6 +16,16 @@ public class CardDeTrello {
   private String desc;
   private String name;
   private List<PluginDataDeTrello> pluginData;
+  private ListaDeTrello lista;
+  private Long pos;
+
+  public Long getPos() {
+    return pos;
+  }
+
+  public void setPos(Long pos) {
+    this.pos = pos;
+  }
 
   public List<PluginDataDeTrello> getPluginData() {
     if (pluginData == null) {
@@ -82,5 +92,13 @@ public class CardDeTrello {
 
   public boolean isNotClosed() {
     return !getClosed();
+  }
+
+  public void setLista(ListaDeTrello lista) {
+    this.lista = lista;
+  }
+
+  public String getNombreDeLista() {
+    return lista.getName();
   }
 }
