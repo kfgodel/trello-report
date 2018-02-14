@@ -18,6 +18,18 @@ public class CardDeTrello {
   private List<PluginDataDeTrello> pluginData;
   private ListaDeTrello lista;
   private Long pos;
+  private List<LabelDeTrello> labels;
+
+  public List<LabelDeTrello> getLabels() {
+    if (labels == null) {
+      labels = new ArrayList<>();
+    }
+    return labels;
+  }
+
+  public void setLabels(List<LabelDeTrello> labels) {
+    this.labels = labels;
+  }
 
   public Long getPos() {
     return pos;
@@ -100,5 +112,15 @@ public class CardDeTrello {
 
   public String getNombreDeLista() {
     return lista.getName();
+  }
+
+  public boolean perteneceAUnaListaNoIncluidaEn(List<String> listasExcluidas) {
+    return !listasExcluidas.contains(this.getNombreDeLista());
+  }
+
+  public boolean tieneUnLabelIncluidoEn(List<String> labelsIncluidos) {
+    return Nary.create(getLabels())
+      .mapNary(LabelDeTrello::getName)
+      .anyMatch(labelsIncluidos::contains);
   }
 }

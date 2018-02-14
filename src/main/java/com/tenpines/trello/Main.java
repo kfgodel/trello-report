@@ -15,10 +15,14 @@ public class Main {
     exportado.completarDatosCruzados();
 
     List<String> listasExcluidas = Lists.newArrayList(
-      "Iteracion 1 - 29/11 a 13/12",
-      "Iteracion 2 - 14/12 a 27/12",
-      "Iteracion 3 - 28/12 a 10/01",
-      "Iteracion 4 - 11/01 a 24/01"
+//      "Iteracion 1 - 29/11 a 13/12",
+//      "Iteracion 2 - 14/12 a 27/12",
+//      "Iteracion 3 - 28/12 a 10/01",
+//      "Iteracion 4 - 11/01 a 24/01"
+    );
+
+    List<String> labelsIncluidos = Lists.newArrayList(
+      "Fuera de propuesta"
     );
 
     List<CardDeTrello> cards = exportado.getCards();
@@ -31,7 +35,8 @@ public class Main {
     cards.stream()
       .filter(CardDeTrello::isNotClosed)
 //      .limit(10)
-      .filter(card -> !listasExcluidas.contains(card.getNombreDeLista()))
+      .filter(card -> card.perteneceAUnaListaNoIncluidaEn(listasExcluidas))
+      .filter(card -> labelsIncluidos.isEmpty() || card.tieneUnLabelIncluidoEn(labelsIncluidos)) // El empty es por si no usamos el filtro
       .sorted(OrdenarPorListaYPosicion.create())
       .forEach(card -> {
         String lineaCsv = card.getIdShort() + ", " + comoTextoCsv(card.getNombreDeLista()) + ", " + card.getEstimado() + ", " + comoTextoCsv(card.getName()) + ", " + comoTextoCsv(card.getDesc());
